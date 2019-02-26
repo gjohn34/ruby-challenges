@@ -1,7 +1,7 @@
 # Write a method that will take two numbers,
 # and return whichever is the largest.
 def largest_number(num1,num2)
-  if !num1.is_a?(Integer) or !num2.is_a?(Integer)
+  if !num1.is_a?(Numeric) or !num2.is_a?(Numeric)
     puts "Convert to integer first"
   elsif num1 > num2
     puts num1
@@ -11,8 +11,6 @@ def largest_number(num1,num2)
     puts "Buddy, can't you tell those are both equal to each other?"
   end
 end
-
-defined?()
 
 
 # Beast Mode:
