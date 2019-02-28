@@ -1,3 +1,4 @@
+=begin
 def travel_to_class
   time_to_class = 0   #beginning at 0 value
   puts "My first step is to drive fifteen minutes to my most convenient bus stop where there is always a bus waiting,"
@@ -19,18 +20,24 @@ def travel_to_class
 end
 
 travel_to_class
+=end
 
 #creating Drink class with current backlog (future will update to have dynamic backlog)
 class Drink
   @@backlog = Hash.new
   @@backlog = {cocktail: 3, water: 2, beer: 6}
+  @@products = Hash.new
+  @@products = {"Cocktail" => {cost: 8, sell: 22, backlog: @@backlog[:cocktail]}, "Beer" => {cost: 3, sell: 12, backlog: @@backlog[:beer]}, "Water" => {cost: 6, sell: 0.15, backlog: @@backlog[:water]}}
+  @@total_cost = 0
+  @@total_sell = 0
 
-  def give_quantity(backlog = @@backlog, element)
+  def give_quantity(element)
     puts "How many?"
     quantity_input = gets.chomp.to_i
-    if quantity_input.class == Integer
-      backlog[element.to_sym] += quantity_input
-      puts "DANNY, yous got to make #{backlog[element.to_sym]} #{element.to_s}s now. Get moving!"
+    if quantity_input. != 0
+      @@backlog[element.to_sym] += quantity_input
+      @@products["Cocktail"][:backlog] += quantity_input
+      puts "DANNY, yous got to make #{@@backlog[element.to_sym]} #{element.to_s}s now. Get moving!"
     else
       puts "Whole numbers only, buddy"
     end
@@ -55,8 +62,37 @@ class Drink
     end
   end
 
-  def show_backlog(element)
-    return @@backlog[element]
+  def show_backlog
+    return @@backlog
+  end
+
+  def show_products
+    return @@products
+  end
+
+  def generate_profits#(products = @@products)
+    for drink_name, info in @@products
+      #adding costs and sell prices to total values
+      for price_point, amount in info
+        if price_point == :cost
+          temp_cost = amount * info[:backlog]
+          @@total_cost += temp_cost
+        elsif price_point == :sell
+          temp_sell = amount * info[:backlog]
+          @@total_sell += temp_sell
+          end
+        end
+      end
+    profit = @@total_sell - @@total_cost
+  end
+
+
+  def show_total_cost
+    return @@total_cost
+  end
+
+  def show_total_sell
+    return @@total_sell
   end
 end
 
@@ -71,27 +107,7 @@ end
 
 drink = Drink.new
 drink.order
-
-total_cost = 0
-total_sell = 0
-#creating new hash that includes an updated backlog total
-products = Hash.new
-products = {"Cocktail" => {cost: 8, sell: 22, backlog: drink.show_backlog(:cocktail)}, "Beer" => {cost: 3, sell: 12, backlog: drink.show_backlog(:beer)}, "Water" => {cost: 6, sell: 0.15, backlog: drink.show_backlog(:water)}}
-#looping through Hash
-for drink_name, info in products
-  #adding costs and sell prices to total values
-  for price_point, amount in info
-    if price_point == :cost
-      temp_cost = amount * info[:backlog]
-      total_cost += temp_cost
-    elsif price_point == :sell
-      temp_sell = amount * info[:backlog]
-      total_sell += temp_sell
-    end
-  end
-end
-
-puts "Total Cost: $#{total_cost}"
-puts "Total Sell: $#{total_sell}"
-profit = total_sell - total_cost
+profit = drink.generate_profits
+puts "Total Cost: $#{drink.show_total_cost}"
+puts "Total Sell: $#{drink.show_total_sell}"
 puts "Total Profit: $#{profit.round(2)}"
