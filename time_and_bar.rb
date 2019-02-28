@@ -7,9 +7,9 @@
 
 
 def travel_to_class
-  time_to_class = 0
+  time_to_class = 0   #beginning at 0 value
   puts "My first step is to drive fifteen minutes to my most convenient bus stop where there is always a bus waiting,"
-  time_to_class += 15
+  time_to_class += 15 #adding puts statement and adding travel time to variable
 
   print "then my partner and I usually sit on the bus for another 15 minutes and play on our phones. \n"
   time_to_class += 15
@@ -26,7 +26,7 @@ def travel_to_class
   puts "All in all, my total travel time is #{time_to_class}."
 end
 
-#travel_to_class
+travel_to_class
 
 # PART 2:
 
@@ -38,8 +38,10 @@ $backlog["water"] = 2
 $backlog["beer"] = 6
 
 def order
+  #user input
   puts "Whaddya want? You only got 3 options: Beer, Cocktail or Water."
   input = gets.chomp.downcase
+  # adding 1 drink order to Hash total
   case input
   when "cocktail"
     $backlog["cocktail"] += 1
@@ -61,11 +63,16 @@ order
 # Water sell for $6, and cost $0.15 to make
 
 # Print out the total profit for the orders you have
+
+#initializing 2 zero values
 total_cost = 0
 total_sell = 0
+#creating new hash that includes an updated backlog total
 products = Hash.new
-products = {"Cocktail" => {cost: 8, sell: 22, backlog: 3}, "Beer" => {cost: 3, sell: 12, backlog: 6}, "Water" => {cost: 6, sell: 0.15, backlog: 6}}
+products = {"Cocktail" => {cost: 8, sell: 22, backlog: $backlog["cocktail"]}, "Beer" => {cost: 3, sell: 12, backlog: $backlog["beer"]}, "Water" => {cost: 6, sell: 0.15, backlog: $backlog["water"]}}
+#looping through Hash
 for drink_name, info in products
+  #adding costs and sell prices to total values
   for price_point, amount in info
     if price_point == :cost
       temp_cost = amount * info[:backlog]
