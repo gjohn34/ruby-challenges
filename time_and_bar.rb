@@ -1,11 +1,3 @@
-# There are three parts to this challenge and remember to push your solution.
-
-# PART 1:
-# - Create a well named variable that contains the amount of time it took you to get to class
-# - Create a complete sentence  that lets us know how you got to class and how long it took
-# - Print this complete sentence
-
-=begin
 def travel_to_class
   time_to_class = 0   #beginning at 0 value
   puts "My first step is to drive fifteen minutes to my most convenient bus stop where there is always a bus waiting,"
@@ -28,17 +20,13 @@ end
 
 travel_to_class
 
-=end
-
-# PART 2:
-
-#have to declare backlog as global for now. putting inside the order method resets
-#the total order amounts. Maybe make a class and instance within?
-
+#creating Drink class with current backlog (future will update to have dynamic backlog)
 class Drink
   @@backlog = Hash.new
   @@backlog = {cocktail: 3, water: 2, beer: 6}
 
+# => order method to capture user input and add drink order to backlog
+  # => (future will add quantity option)
   def order
     #user input
     puts "Whaddya want? You only got 3 options: Beer, Cocktail or Water."
@@ -73,14 +61,6 @@ end
 drink = Drink.new
 drink.order
 
-
-# Part Three:
-# Cocktails sell for $22, and cost $8 to make
-# Beer sell for $12, and cost $3 to pour
-# Water sell for $6, and cost $0.15 to make
-
-# Print out the total profit for the orders you have
-#initializing 2 zero values
 total_cost = 0
 total_sell = 0
 #creating new hash that includes an updated backlog total
@@ -104,4 +84,3 @@ puts "Total Cost: #{total_cost}"
 puts "Total Sell: #{total_sell}"
 profit = total_sell - total_cost
 puts "Total Profit: #{profit.round(2)}"
-#profit = sell - cost
