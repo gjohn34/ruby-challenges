@@ -25,6 +25,17 @@ class Drink
   @@backlog = Hash.new
   @@backlog = {cocktail: 3, water: 2, beer: 6}
 
+  def give_quantity(backlog = @@backlog, element)
+    puts "How many?"
+    quantity_input = gets.chomp.to_i
+    if quantity_input.class == Integer
+      backlog[element.to_sym] += quantity_input
+      puts "DANNY, yous got to make #{backlog[element.to_sym]} #{element.to_s}s now. Get moving!"
+    else
+      puts "Whole numbers only, buddy"
+    end
+  end
+
 # => order method to capture user input and add drink order to backlog
   # => (future will add quantity option)
   def order
@@ -34,11 +45,11 @@ class Drink
     # adding 1 drink order to Hash total
     case input
     when "cocktail"
-      @@backlog[:cocktail] += 1
+      give_quantity(:cocktail)
     when "water"
-      @@backlog[:water] += 1
+      give_quantity(:water)
     when "beer"
-      @@backlog[:beer] += 1
+      give_quantity(:beer)
     else
       puts "We don't make that here!"
     end
@@ -80,7 +91,7 @@ for drink_name, info in products
   end
 end
 
-puts "Total Cost: #{total_cost}"
-puts "Total Sell: #{total_sell}"
+puts "Total Cost: $#{total_cost}"
+puts "Total Sell: $#{total_sell}"
 profit = total_sell - total_cost
-puts "Total Profit: #{profit.round(2)}"
+puts "Total Profit: $#{profit.round(2)}"
