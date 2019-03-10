@@ -3,10 +3,10 @@ require_relative '../09_vowels'
 
 class LargestNumberTest < Test::Unit::TestCase
   def test_vowels
-    assert_equal(["e","u","i","o","o"], vowels("The quick brown fox"))
-    assert_equal(["e","o","o"], vowels("Hello World"))
+    assert_equal(["e","u","i","o","o"], count_vowels("The quick brown fox"))
+    assert_equal(["e","o","o"], count_vowels("Hello World"))
   end
   def test_vowels_casing
-    assert_equal(["A","e","E"], vowels("cAse tEst"))
+    assert_equal(["A","e","E"], count_vowels("cAse tEst"))
   end
 end
