@@ -30,3 +30,5 @@
 * 10_unique
 * 11_fizzbuzz
 * 12_count_words
+* 13_fibonacci
+* 14_hackerman
