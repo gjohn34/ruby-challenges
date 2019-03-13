@@ -14,10 +14,8 @@ def replace_with_hidden()
   first_input_split = first_input.split(' ')
   second_input_split = second_input.split(' ')
   for word in second_input_split
-    for word2 in first_input_split
-      if word == word2
-        second_input_split[second_input_split.index(word)] = "HIDDEN"
-      end
+    if first_input_split.include?(word)
+      second_input_split[second_input_split.index(word)] = "HIDDEN"
     end
   end
   return second_input_split.join(' ')
