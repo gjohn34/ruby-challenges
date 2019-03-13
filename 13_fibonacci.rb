@@ -17,10 +17,12 @@
 def nthFibonacci(n)
   fib_array = [0, 1]
   (0..n).each do |i|
-    fib_array.push(fib_array[i] + fib_array[i+1])
+    fib_array.push(fib_array[i-1] + fib_array[i-2])
   end
   return fib_array[n]
 end
+
+puts nthFibonacci(3000000)
 
 #puts nthFibonacci(0)
 # Example:
