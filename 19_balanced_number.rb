@@ -19,18 +19,20 @@
 def balanced_num(number)
   sum1 = 0
   sum2 = 0
+  #first we split the array.
   array = number.to_s.split('')
-  #is the number odd or even
+  #is the length of the number odd or even?
   if array.length % 2 == 0
-    #if even
+    #if even, we sum in values of the indices before the middle
     (0..(array.length/2)-2).each do |i|
       sum1 += array[i].to_i
     end
+    #and after middle
     ((array.length/2)+1..array.length).each do |i|
       sum2 += array[i].to_i
     end
   else
-    #if odd
+    #if odd, we sum the values before and after the middle again
     (0..(array.length/2)-1).each do |i|
       sum1 += array[i].to_i
     end
@@ -38,6 +40,7 @@ def balanced_num(number)
       sum2 += array[i].to_i
     end
   end
+  #then we compare the two sums
   if sum1 == sum2
     return "Balanced"
   else
@@ -75,7 +78,3 @@ end
 # Since, the sum of all digits to the left of the middle digits (10)
 # and the sum of all digits to the right of the middle digits (20) are equal, then it's not balanced.
 # Note : The middle digit(s) are 02.
-
-def balanced_num(number)
-    # Your code goes here
-end
