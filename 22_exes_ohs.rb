@@ -33,7 +33,10 @@
 # Expected output: false
 
 def exes_and_ohs(input)
-  return "Too many different characters" if input.downcase.split('').uniq.length != 2
+  uniq_array = input.downcase.split('').uniq
+  return false if uniq_array.length != 2
   array = input.downcase.split('')
-  array.count(array[0]) == array.count(array[1]) ? true : false
+  array.count(uniq_array[0]) == array.count(uniq_array[1]) ? true : false
 end
+
+puts exes_and_ohs("oox")
