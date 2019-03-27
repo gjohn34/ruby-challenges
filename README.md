@@ -40,3 +40,5 @@
 * 20_descending_numbers
 * 21_sort_numbers
 * 22_exes_ohs
+* 23_first_non_repeating
+>>>>>>> a87187ce63d794abb384db7a7bfb3dbc533fc579
