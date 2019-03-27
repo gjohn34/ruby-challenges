@@ -34,9 +34,14 @@
 
 def exes_and_ohs(input)
   uniq_array = input.downcase.split('').uniq
-  return false if uniq_array.length != 2
   array = input.downcase.split('')
+  return false if uniq_array.length != 2
   array.count(uniq_array[0]) == array.count(uniq_array[1]) ? true : false
 end
 
-puts exes_and_ohs("oox")
+#puts exes_and_ohs("ooxx")
+#puts exes_and_ohs("oOxXxoX")
+#puts exes_and_ohs("ooXx")
+#puts exes_and_ohs("rtrt")
+#puts exes_and_ohs("RtrT")
+#puts exes_and_ohs("efefy")
