@@ -47,8 +47,8 @@ def first_non_repeating(input)
   return false
 end
 
-# Test your code here
-puts first_non_repeating("aaaabbbcccdeeefgh")
+  # Test your code here
+  puts first_non_repeating("aaaabbbcccdeeefgh")
 puts first_non_repeating("wwwhhhggge")
 puts first_non_repeating("wwwhhhggg")
 puts first_non_repeating("abbbccc")
