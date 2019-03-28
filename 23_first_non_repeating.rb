@@ -30,17 +30,13 @@ def first_non_repeating(input)
   characters = input.chars
   #set an index to 0 so we can check further array elements in our loop
   i = 0
-  found = false
-  while !found
-    found = true
-    #loop through our array
-    for char in characters
-      #increment our counter with each iteration
-      i = characters.index(char)
-      #first non-match returns character
-      if characters[i] != characters[i+1]
-        return characters[i]
-      end
+  #loop through our array
+  for char in characters
+    #increment our counter with each iteration
+    i = characters.index(char)
+    #first non-match returns character
+    if characters[i] != characters[i+1]
+      return characters[i]
     end
   end
   #no match returns false
