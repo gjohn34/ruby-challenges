@@ -17,9 +17,7 @@ def remove_adjacent_duplicates(input)
   characters = input.chars
   array = []
   (0..characters.length-1).each do |x|
-    if characters[x] != characters[x+1]
-      array.push(characters[x])
-    end
+    array.push(characters[x]) if characters[x] != characters[x+1]
   end
   return array.join('')
 end

@@ -15,7 +15,7 @@
 # *E.g.* isogram?("scary") should return true
 
 def isogram?(input)
-  input == input.split('').uniq.join('') ? true : false
+  input == input.chars.uniq.join('') ? true : false
 end
 
 # Test your code here
