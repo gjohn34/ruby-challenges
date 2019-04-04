@@ -46,4 +46,4 @@
 * 25_remove_adjacent_duplicates
 * 26_max_min
 * 27_in_array_strict
->>>>>>> d050ff1e9debde4c151e86e164b777a6f194c92e
+* 28_good_walk
