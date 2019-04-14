@@ -42,6 +42,7 @@ def good_walk(walk)
   (walk.size == 10) and homesafe ? true : false
 end
 
+
 def generate_walk(time)
   directions = ['n','e','s','w']
   walk_array = []
