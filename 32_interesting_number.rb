@@ -48,6 +48,3 @@ def decreasing_numbers?(numbers)
       return true
   end
 end
-
-
-interesting_number(1234)
