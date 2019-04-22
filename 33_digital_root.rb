@@ -16,13 +16,13 @@
 # Return -1 if any negative argument is provided.
 
 def digital_root(number)
-  if number > 0
-    num = number.digits
-    until num.length == 1
-      num = num.reduce(:+).digits
-    end
-    return num
-  else
-    return -1
+  number > 0 ? sum_numbers(number) : -1
+end
+
+def sum_numbers(number)
+  num = number.digits
+  until num.length == 1
+    num = num.reduce(:+).digits
   end
+  return num
 end
